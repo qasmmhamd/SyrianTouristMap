@@ -11,7 +11,7 @@ class AuthController extends Controller
     public function index(){
         $redion=Region::all();
         return response()->json([
-            "name"=>$redion,
+            "data"=>$redion,
             "error"=>""
         ]);
     }
