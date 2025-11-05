@@ -10,16 +10,15 @@ return new class extends Migration
     {
         Schema::create('admins', function (Blueprint $table) {
             $table->id('admin_id');
-            $table->unsignedBigInteger('super_admin_id')->nullable(); // 🔗 العلاقة مع super_admins
+            $table->unsignedBigInteger('super_admin_id')->nullable(); 
             $table->string('username')->unique();
             $table->string('password');
             $table->timestamps();
 
-            // 🔗 المفتاح الأجنبي
             $table->foreign('super_admin_id')
                   ->references('super_admin_id')
                   ->on('super_admins')
-                  ->onDelete('set null'); // لو حذف السوبر أدمن، تتحول القيمة إلى null
+                  ->onDelete('set null'); 
         });
     }
 

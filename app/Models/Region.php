@@ -9,19 +9,15 @@ class Region extends Model
 {
     use HasFactory;
 
-    // اسم الجدول
     protected $table = 'regions';
 
-    // اسم المفتاح الأساسي
     protected $primaryKey = 'region_id';
 
-    // الأعمدة القابلة للتعبئة
     protected $fillable = [
         'name',
         'description',
     ];
 
-    // إلغاء timestamps لأن الجدول لا يحتوي على created_at و updated_at
     public $timestamps = false;
 
     /**

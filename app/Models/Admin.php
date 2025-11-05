@@ -23,16 +23,14 @@ class Admin extends Authenticatable
     protected function casts(): array
     {
         return [
-            'password' => 'hashed', // تشفير تلقائي
-        ];
+            'password' => 'hashed', 
+               ];
     }
 
     public $timestamps = true;
 
-    // 🔗 مثال على علاقة أو صلاحية مستقبلية
     public function managePlaces()
     {
-        // من هنا ممكن تعمل علاقة مع جدول places لاحقًا
     }
     public function superAdmin()
 {

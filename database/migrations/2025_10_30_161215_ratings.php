@@ -15,7 +15,7 @@ return new class extends Migration
             $table->unsignedBigInteger('place_id');
             $table->timestamps();
 
-            // 🔗 العلاقات
+            //  العلاقات
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('place_id')->references('place_id')->on('places')->onDelete('cascade');
         });

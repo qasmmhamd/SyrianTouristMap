@@ -11,17 +11,17 @@ class Rating extends Model
 
     protected $table = 'ratings';
 
-    // المفتاح الأساسي
+    
     protected $primaryKey = 'rating_id';
 
-    // الأعمدة القابلة للتعبئة
+
     protected $fillable = [
         'value',
         'user_id',
         'place_id',
     ];
 
-    // الجدول يحتوي على created_at و updated_at
+    
     public $timestamps = true;
 
     /**

@@ -9,13 +9,10 @@ class Comment extends Model
 {
     use HasFactory;
 
-    // اسم الجدول
     protected $table = 'comments';
 
-    // المفتاح الأساسي
     protected $primaryKey = 'comment_id';
 
-    // الأعمدة القابلة للتعبئة
     protected $fillable = [
         'content',
         'date',
@@ -23,7 +20,6 @@ class Comment extends Model
         'place_id',
     ];
 
-    // الجدول يحتوي على created_at و updated_at
     public $timestamps = true;
 
     /**
