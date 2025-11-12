@@ -41,7 +41,7 @@ return [
             'provider' => 'users',
         ],
         
-        'api' => [ // إضافة guard لـ API باستخدام JWT
+        'api' => [ 
             'driver' => 'jwt',
             'provider' => 'users',
         ],

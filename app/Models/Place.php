@@ -10,6 +10,8 @@ class Place extends Model
     use HasFactory;
 
     protected $table = 'places';
+    protected $keyType = 'int';
+    public $incrementing = true;
 
     
     protected $primaryKey = 'place_id';
@@ -22,6 +24,8 @@ class Place extends Model
         'latitude',
         'longitude',
         'google_map_url',
+        'imegs_url',
+
         'type', // ['historical', 'entertainment', 'service']
     ];
 

@@ -2,18 +2,19 @@
 
 namespace App\Models;
 
+use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class SuperAdmin extends Authenticatable
 {
-    use HasFactory;
+    use  HasApiTokens,HasFactory;
 
     protected $table = 'super_admins';
     protected $primaryKey = 'super_admin_id';
 
     protected $fillable = [
-        'username',
+        'name',
          'email',
         'password',
         
