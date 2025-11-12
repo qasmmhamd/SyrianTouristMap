@@ -14,11 +14,11 @@ Route::get('/region',[AuthController::class,"index"]);
 Route::get('/places', [PlaceController::class, 'index']);
 
 Route::prefix('api')->group(function () { 
-    Route::post('/user/register', [UserController::class, 'register']); 
-    Route::post('/user/login', [UserController::class, 'login']);
+    Route::post('/register', [UserController::class, 'register']); 
+    Route::post('/login', [UserController::class, 'login']);
        Route::middleware('auth:sanctum')->group(function () { 
     Route::get('/user', [UserController::class, 'user']);
-    Route::post('/user/logout', [UserController::class, 'logout']); 
+    Route::post('/logout', [UserController::class, 'logout']); 
        });
     
 
