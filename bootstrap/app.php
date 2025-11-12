@@ -28,6 +28,9 @@ return Application::configure(basePath: dirname(__DIR__))
           'api/*',
           '/api/*',
     ]);
+     $middleware->alias([
+        'SuperAdmin' => \App\Http\Middleware\SuperAdminMiddleware::class,
+    ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
