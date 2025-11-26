@@ -68,17 +68,19 @@ class UserController extends Controller
         return response()
             ->json([
                 'message' => 'تم تسجيل الدخول بنجاح',
-                'user' => $user
-            ])
-            ->cookie(
-                'token',
-                $token,
-                60 * 24 * 7,
-                '/',
-                null,
-                false,
-                true
-            );
+                'user' => $user,
+                 'token' => $token,
+            'token_type' => 'Bearer',
+            ]);
+           // ->cookie(
+           //     'token',
+           //   $token,
+           //     60 * 24 * 7,
+           //     '/',
+           //     null,
+          //      false,
+            //    true
+          //  );
     }
 
     // جلب المستخدم الحالي
@@ -95,8 +97,8 @@ class UserController extends Controller
 
         // حذف الكوكي من المتصفح
         return response()
-            ->json(['message' => 'تم تسجيل الخروج بنجاح'])
-            ->cookie('token', null, -1);
+            ->json(['message' => 'تم تسجيل الخروج بنجاح']);
+            //->cookie('token', null, -1);
     }
 }
 
