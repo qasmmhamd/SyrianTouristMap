@@ -8,6 +8,9 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\Http\\Controllers\\API\\AuthController' => $baseDir . '/app/Http/Controllers/API/AuthController.php',
     'App\\Http\\Controllers\\API\\PlaceController' => $baseDir . '/app/Http/Controllers/API/PlaceController.php',
+    'App\\Http\\Controllers\\API\\SuperadminController' => $baseDir . '/app/Http/Controllers/API/SuperadminController.php',
+    'App\\Http\\Controllers\\API\\TasksSuperadminController' => $baseDir . '/app/Http/Controllers/API/TasksSuperadminController.php',
+    'App\\Http\\Controllers\\API\\UserController' => $baseDir . '/app/Http/Controllers/API/UserController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Middleware\\CheckRole' => $baseDir . '/app/Http/Middleware/CheckRole.php',
     'App\\Http\\Middleware\\SuperAdminMiddleware' => $baseDir . '/app/Http/Middleware/SuperAdminMiddleware.php',

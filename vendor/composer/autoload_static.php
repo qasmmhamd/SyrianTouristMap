@@ -560,6 +560,9 @@ class ComposerStaticInitc514d8f7b9fc5970bdd94287905ef584
     public static $classMap = array (
         'App\\Http\\Controllers\\API\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/AuthController.php',
         'App\\Http\\Controllers\\API\\PlaceController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/PlaceController.php',
+        'App\\Http\\Controllers\\API\\SuperadminController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/SuperadminController.php',
+        'App\\Http\\Controllers\\API\\TasksSuperadminController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/TasksSuperadminController.php',
+        'App\\Http\\Controllers\\API\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/UserController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Middleware\\CheckRole' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckRole.php',
         'App\\Http\\Middleware\\SuperAdminMiddleware' => __DIR__ . '/../..' . '/app/Http/Middleware/SuperAdminMiddleware.php',
