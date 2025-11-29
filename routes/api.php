@@ -30,7 +30,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', [UserController::class,'user']);
     Route::post('/logout', [UserController::class,'logout']);
 
-    // Super admin logout
+    // Super admin Info & logout
+    Route::get('/superadmin', [UserController::class,'superadmin']);
     Route::post('/superadmin/logout',[SuperadminController::class,'logout']);
 });
 

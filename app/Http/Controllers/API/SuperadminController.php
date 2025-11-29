@@ -29,9 +29,19 @@ class SuperadminController extends Controller
 
         return response()->json([
             'superadmin'  => $superadmin,
-            'token' => $token,
-            'token_type' => 'Bearer',
-        ], 201);
+        ], 201)->cookie(
+            'token',
+            $token,
+            60*24*7,
+            '/',
+            null,
+            false,
+            true
+        );
+    }
+     public function superadmin(Request $request)
+    {
+        return response()->json($request->superadmin());
     }
    public function login(Request $request)
     {
@@ -52,9 +62,15 @@ class SuperadminController extends Controller
 
         return response()->json([
             'superadmin'  => $superadmin,
-            'token' => $token,
-            'token_type' => 'Bearer',
-        ]);
+        ])->cookie(
+            'token',
+            $token,
+            60*24*7,
+            '/',
+            null,
+            false,
+            true
+        );
     }
     public function logout(Request $request)
     {
