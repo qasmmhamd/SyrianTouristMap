@@ -29,6 +29,7 @@ class SuperadminController extends Controller
 
         return response()->json([
             'superadmin'  => $superadmin,
+            
         ], 201)->cookie(
             'token',
             $token,
@@ -62,6 +63,7 @@ class SuperadminController extends Controller
 
         return response()->json([
             'superadmin'  => $superadmin,
+            'token' => $token,
         ])->cookie(
             'token',
             $token,
