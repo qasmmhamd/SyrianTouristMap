@@ -25,7 +25,7 @@ class TasksSuperadminController extends Controller
           "image_url"=>"required|image|mimes:jpg,jpeg,png|max:2048",
 
       ]);
-          $imagePath = $request->file('imegs_url')->store('images', 'public');
+          $imagePath = $request->file('image_url')->store('images', 'public');
             $place=Place::create([  
                'name' => $ViewData['name'],
                'description' => $ViewData['description'] ?? null,
