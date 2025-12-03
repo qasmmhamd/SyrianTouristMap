@@ -21,8 +21,6 @@ class TasksSuperadminController extends Controller
           "location"=>"required|nullable|string",
           "region_id"=>"required|integer",
           "type"=>"required|string",
-          "latitude"=>"required|numeric",
-          "longitude"=>"required|numeric",
           "google_map_url"=>"required|string",
           "imegs_url"=>"required|image|mimes:jpg,jpeg,png|max:2048",
 
@@ -34,8 +32,6 @@ class TasksSuperadminController extends Controller
                'location' => $ViewData['location'] ?? null,
                'region_id' => $ViewData['region_id'],
                'type' => $ViewData['type'],
-               'latitude' => $ViewData['latitude'],
-               'longitude' => $ViewData['longitude'],
                'google_map_url' => $ViewData['google_map_url'],
                'imegs_url' => $imagePath, 
             ]);
@@ -67,8 +63,6 @@ class TasksSuperadminController extends Controller
                      "location"=>"required|nullable|string",
                      "region_id"=>"required|integer",
                      "type"=>"required|string",
-                     "latitude"=>"required|numeric",
-                     "longitude"=>"required|numeric",
                      "google_map_url"=>"required|string",
                      "imegs_url"=>"required|string",
          
