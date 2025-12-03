@@ -64,10 +64,20 @@ class TasksSuperadminController extends Controller
                      "region_id"=>"required|integer",
                      "type"=>"required|string",
                      "google_map_url"=>"required|string",
-                     "image_url"=>"required|string",
+                     "image_url"=>"required|image|mimes:jpg,jpeg,png|max:2048",
          
                  ]);
-                 $place->update($ViewData);
+                 $imagePath = $request->file('image_url')->store('images', 'public');
+
+                 $place->update([  
+               'name' => $ViewData['name'],
+               'description' => $ViewData['description'] ?? null,
+               'location' => $ViewData['location'] ?? null,
+               'region_id' => $ViewData['region_id'],
+               'type' => $ViewData['type'],
+               'google_map_url' => $ViewData['google_map_url'],
+               'image_url' => $imagePath, 
+            ]);
                  return response()->json([
                   "message"=>"Place updated successfully",
                   "place"=>$place
@@ -114,4 +124,5 @@ class TasksSuperadminController extends Controller
                      "data" => $admin,
                   ], 201);
               }
+              
 }
