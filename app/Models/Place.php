@@ -24,7 +24,7 @@ class Place extends Model
         'latitude',
         'longitude',
         'google_map_url',
-        'imegs_url',
+        'image_url',
 
         'type', // ['historical', 'entertainment', 'service']
     ];

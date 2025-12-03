@@ -22,7 +22,7 @@ class TasksSuperadminController extends Controller
           "region_id"=>"required|integer",
           "type"=>"required|string",
           "google_map_url"=>"required|string",
-          "imegs_url"=>"required|image|mimes:jpg,jpeg,png|max:2048",
+          "image_url"=>"required|image|mimes:jpg,jpeg,png|max:2048",
 
       ]);
           $imagePath = $request->file('imegs_url')->store('images', 'public');
@@ -33,7 +33,7 @@ class TasksSuperadminController extends Controller
                'region_id' => $ViewData['region_id'],
                'type' => $ViewData['type'],
                'google_map_url' => $ViewData['google_map_url'],
-               'imegs_url' => $imagePath, 
+               'image_url' => $imagePath, 
             ]);
             return response()->json([
                 "message"=>"Place created successfully",
@@ -64,7 +64,7 @@ class TasksSuperadminController extends Controller
                      "region_id"=>"required|integer",
                      "type"=>"required|string",
                      "google_map_url"=>"required|string",
-                     "imegs_url"=>"required|string",
+                     "image_url"=>"required|string",
          
                  ]);
                  $place->update($ViewData);
