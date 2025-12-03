@@ -9,15 +9,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('ratings', function (Blueprint $table) {
-            $table->id('rating_id');
-            $table->float('value');
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('place_id');
-            $table->timestamps();
-
-            //  العلاقات
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('place_id')->references('place_id')->on('places')->onDelete('cascade');
+            $table->id('rating_id'); // العمود الأساسي مطابق للموديل
+            $table->float('value'); // قيمة التقييم
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete(); // علاقة بمستخدم
+            $table->foreignId('place_id')->constrained('places')->cascadeOnDelete(); // علاقة بالمكان
+            $table->timestamps(); // created_at & updated_at
         });
     }
 

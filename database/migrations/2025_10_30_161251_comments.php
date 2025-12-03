@@ -8,18 +8,15 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('comments', function (Blueprint $table) {
-            $table->id('comment_id');
-            $table->text('content');
-            $table->date('date');
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('place_id');
-            $table->timestamps();
+       Schema::create('comments', function (Blueprint $table) {
+    $table->id('comment_id');
+    $table->text('content');
+    $table->date('date');
+    $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+    $table->foreignId('place_id')->constrained('places')->cascadeOnDelete();
+    $table->timestamps();
+});
 
-            //  العلاقات
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('place_id')->references('place_id')->on('places')->onDelete('cascade');
-        });
     }
 
     public function down(): void

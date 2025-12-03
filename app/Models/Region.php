@@ -9,23 +9,24 @@ class Region extends Model
 {
     use HasFactory;
 
-    protected $table = 'regions';
-
-    protected $primaryKey = 'region_id';
-
     protected $fillable = [
-        'name',
-        'description',
+        'url',
     ];
 
-    public $timestamps = false;
+    /**
+     * كل الترجمات (عربي - إنجليزي - مستقبلاً لغات أخرى)
+     */
+    public function translations()
+    {
+        return $this->hasMany(RegionTranslation::class);
+    }
 
     /**
-     * العلاقة مع مودل Place
-     * المنطقة تحتوي على العديد من الأماكن
+     * الترجمة حسب اللغة الحالية في الموقع
      */
-    public function places()
+    public function translation()
     {
-        return $this->hasMany(Place::class, 'region_id', 'region_id');
+        return $this->hasOne(RegionTranslation::class)
+            ->where('locale', app()->getLocale());
     }
 }

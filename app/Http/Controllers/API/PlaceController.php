@@ -7,19 +7,18 @@ use Illuminate\Http\Request;
 
 class PlaceController extends Controller
 {
-  public function index(Request $request)
+     public function index(Request $request)
     {
-        $regionId = $request->query('region_id');
-        $query = Place::query()->with('region');
-        if ($regionId) {
-            $query->where('region_id', $regionId);
-        }
-        $places = $query->get();
-        return response()->json([
-            'success' => true,
-            'count' => $places->count(),
-            'data' => $places
-        ], 200, [], JSON_UNESCAPED_UNICODE); 
+        // اللغة المطلوبة، افتراضيًا 'ar'
+        $locale = $request->get('lang', 'ar');
+
+        // جلب كل الأماكن مع ترجمتها والمنطقة التابعة لها
+        $places = Place::with(['region', 'translations' => function($q) use ($locale) {
+            $q->where('locale', $locale);
+        }])->get();
+
+        // إعادة البيانات بصيغة JSON
+        return response()->json($places);
     }
 
 }

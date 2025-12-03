@@ -4,13 +4,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\SuperadminController;
 use App\Http\Controllers\Api\TasksSuperadminController;
+use App\Http\Controllers\Api\RegionController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\PlaceController;
 
 
-
 /* ------------------ Public Routes ------------------ */
-Route::get('/region', [AuthController::class, "index"]);
+Route::get('/region', [AuthController ::class, "index"]);
 Route::get('/places', [PlaceController::class, 'index']);
 
 // User Auth
