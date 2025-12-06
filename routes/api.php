@@ -12,6 +12,7 @@ use App\Http\Controllers\Api\PlaceController;
 /* ------------------ Public Routes ------------------ */
 Route::get('/region', [AuthController ::class, "index"]);
 Route::get('/places', [PlaceController::class, 'index']);
+Route::get('/getplaces', [PlaceController::class,'getplaces']);
 
 // User Auth
 Route::post('/register', [UserController::class, 'register']);
@@ -23,8 +24,6 @@ Route::post('/superadmin/login', [SuperadminController::class,'login']);
 
 // Admin Auth
 Route::post('/admin/login', [AdminController::class,'login']);
-
-
 
 /* ------------------ Protected User Routes ------------------ */
 Route::middleware('auth:sanctum')->group(function () {
