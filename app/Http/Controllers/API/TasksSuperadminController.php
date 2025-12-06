@@ -152,8 +152,19 @@ class TasksSuperadminController extends Controller
 
         return response()->json(["message" => "User deleted successfully"]);
     }
+    public function deleteAdmin($id)
+    {
+        $admin = Admin::find($id);
+        if (!$admin) {
+            return response()->json(["message" => "Admin not found"], 404);
+        }
 
-    // ✅ حذف تعليق
+        $admin->delete();
+
+        return response()->json(["message" => "Admin deleted successfully"]);
+    }
+
+    //  حذف تعليق
     public function deletecomment($id)
     {
         $comment = Comment::find($id);

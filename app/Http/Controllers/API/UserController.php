@@ -86,4 +86,11 @@ class UserController extends Controller
 
         return response()->json(['message' => 'تم تسجيل الخروج']);
     }
+    public function getusers(Request $request)
+    {
+        $user=User::all();
+        return response()->json([
+            'user' => $user
+        ]);
+    }
 }
