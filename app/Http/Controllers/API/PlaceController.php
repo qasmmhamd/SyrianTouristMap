@@ -30,6 +30,7 @@ class PlaceController extends Controller
                 'id' => $place->id,
                 'type' => $place->type,
                 'google_map_url' => $place->google_map_url,
+                'image_url'=>$place->image_url,
                 'region' => $place->region,
                 'name' => $place->translations->first()->name ?? null,
                 'description' => $place->translations->first()->description ?? null,
