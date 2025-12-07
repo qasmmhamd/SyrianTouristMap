@@ -27,7 +27,7 @@ class TasksSuperadminController extends Controller
             "region_id" => "required|integer|exists:regions,id",
             "type" => "required|in:historical,entertainment,service",
             "google_map_url" => "required|string",
-            "image_url" => "required|image|mimes:jpg,jpeg,png|max:2048",
+            "image_url" => "required|image|mimes:jpg,jpeg,png",
         ]);
 
         //  رفع الصورة
@@ -85,7 +85,7 @@ class TasksSuperadminController extends Controller
             "region_id" => "required|integer|exists:regions,id",
             "type" => "required|in:historical,entertainment,service",
             "google_map_url" => "required|string",
-            "image_url" => "nullable|image|mimes:jpg,jpeg,png|max:2048",
+            "image_url" => "nullable|image|mimes:jpg,jpeg,png",
         ]);
 
         //  تحديث الصورة إن وُجدت
