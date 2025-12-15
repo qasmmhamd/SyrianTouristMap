@@ -14,7 +14,6 @@ class Image extends Model
     protected $fillable = ['place_id', 'url'];
     public $timestamps = true;
 
-    // 🔗 كل صورة تخص مكانًا واحدًا
     public function place()
     {
         return $this->belongsTo(Place::class, 'place_id', 'place_id');

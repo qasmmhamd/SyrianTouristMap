@@ -16,9 +16,6 @@ class RegionTranslation extends Model
         'description',
     ];
 
-    /**
-     * العلاقة مع جدول regions
-     */
     public function region()
     {
         return $this->belongsTo(Region::class);

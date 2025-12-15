@@ -53,6 +53,34 @@ class PlaceController extends Controller
                  'places' => $places
              ]);
       }
+      public function search(Request $request)
+      {
+            $keyword = $request->query('keyword');
+            $locale  = $request->query('locale', 'ar');
+            $type    = $request->query('type'); 
+            $places = Place::query()
+                ->when($type, function ($q) use ($type) {
+                $q->where('type', $type);
+            })
+
+                ->whereHas('translations', function ($q) use ($keyword, $locale) {
+                $q->where('locale', $locale)
+                ->where(function ($query) use ($keyword) {
+                $query->where('name', 'like', "%{$keyword}%")
+                    ->orWhere('description', 'like', "%{$keyword}%")
+                    ->orWhere('location', 'like', "%{$keyword}%");
+             });
+             })
+
+                ->with(['translations' => function ($q) use ($locale) {
+              $q->where('locale', $locale);
+             }])->get();
+
+            return response()->json([
+               'data' => $places
+            ]);
+  
+      }
 
 }
   

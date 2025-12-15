@@ -22,9 +22,10 @@ class Admin extends Authenticatable
 
     protected function casts(): array
     {
-        return [
+        return
+         [
             'password' => 'hashed', 
-               ];
+         ];
     }
 
     public $timestamps = true;
@@ -33,8 +34,8 @@ class Admin extends Authenticatable
     {
     }
     public function superAdmin()
-{
+  {
     return $this->belongsTo(SuperAdmin::class, 'super_admin_id', 'super_admin_id');
-}
+   }
 
 }

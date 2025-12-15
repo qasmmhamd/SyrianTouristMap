@@ -23,7 +23,6 @@ class SuperAdmin extends Authenticatable
     protected $hidden = ['password'];
     public $timestamps = true;
 
-    // 🔗 العلاقة مع Admin (إدارة المدراء)
     public function admins()
     {
         return $this->hasMany(Admin::class, 'super_admin_id', 'super_admin_id');

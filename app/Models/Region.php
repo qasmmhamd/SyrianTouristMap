@@ -13,17 +13,11 @@ class Region extends Model
         'url',
     ];
 
-    /**
-     * كل الترجمات (عربي - إنجليزي - مستقبلاً لغات أخرى)
-     */
     public function translations()
     {
         return $this->hasMany(RegionTranslation::class);
     }
 
-    /**
-     * الترجمة حسب اللغة الحالية في الموقع
-     */
     public function translation()
     {
         return $this->hasOne(RegionTranslation::class)

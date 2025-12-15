@@ -17,14 +17,12 @@ class Place extends Model
         'longitude',
         'google_map_url',
         'image_url',
-        'type', // ['historical', 'entertainment', 'service']
+        'type', 
     ];
 
     public $timestamps = true;
 
-    /* =========================
-       العلاقات الأساسية
-    ========================= */
+    
 
     public function region()
     {
@@ -46,10 +44,7 @@ class Place extends Model
         return $this->hasMany(Image::class);
     }
 
-    /* =========================
-       العلاقات حسب النوع
-    ========================= */
-
+    
     public function historicalPlace()
     {
         return $this->hasOne(HistoricalPlace::class);
@@ -70,26 +65,16 @@ class Place extends Model
         return $this->hasOne(TouristPlace::class);
     }
 
-    /* =========================
-       ✅ علاقات الترجمة
-    ========================= */
-
-    // كل الترجمات
     public function translations()
     {
         return $this->hasMany(PlaceTranslation::class);
     }
 
-    // الترجمة حسب لغة الموقع
     public function translation()
     {
         return $this->hasOne(PlaceTranslation::class)
             ->where('locale', app()->getLocale());
     }
-
-    /* =========================
-       ✅ Scopes (كما هي عندك)
-    ========================= */
 
     public function scopeOfType($query, $type)
     {

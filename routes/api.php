@@ -15,6 +15,9 @@ use App\Http\Controllers\Api\RetingController;
 Route::get('/region', [AuthController ::class, "index"]);
 Route::get('/getplaces', [PlaceController::class,'getplaces']);
 
+// Research
+Route::get('/places/search', [PlaceController::class, 'search']);
+
 // User Auth
 Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']);
