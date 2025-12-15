@@ -13,7 +13,6 @@ use App\Http\Controllers\Api\RetingController;
 
 /* ------------------ Public Routes ------------------ */
 Route::get('/region', [AuthController ::class, "index"]);
-Route::get('/places', [PlaceController::class, 'index']);
 Route::get('/getplaces', [PlaceController::class,'getplaces']);
 
 // User Auth
@@ -30,6 +29,8 @@ Route::post('/admin/login', [AdminController::class,'login']);
 /* ------------------ Protected User Routes ------------------ */
 Route::middleware('auth:sanctum')->group(function () {
 
+    //places
+    Route::get('/places', [PlaceController::class, 'index']);
     //Admin
     Route::get('/admin', [AdminController::class,'Admin']);
     Route::get('/getadmin', [AdminController::class,'getadmin']);

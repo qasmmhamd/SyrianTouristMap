@@ -45,14 +45,14 @@ class PlaceController extends Controller
                 'data'    => $data
              ], 200, [], JSON_UNESCAPED_UNICODE);
       }
-    public function getplaces()
-     {
-    $places = Place::with('translations')->get();
+     public function getplaces()
+      {
+            $places = Place::with('translations')->get();
 
-         return response()->json([
-        'places' => $places
-        ]);
-     }
+            return response()->json([
+                 'places' => $places
+             ]);
+      }
 
 }
   
