@@ -8,7 +8,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('places', function (Blueprint $table) {
-            $table->id(); // العمود الأساسي
+            $table->id();   
             $table->foreignId('region_id')->constrained('regions')->cascadeOnDelete();
             $table->string('google_map_url')->nullable();
             $table->string('image_url')->nullable();

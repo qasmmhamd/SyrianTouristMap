@@ -7,6 +7,8 @@ use App\Http\Controllers\Api\SuperadminController;
 use App\Http\Controllers\Api\TasksSuperadminController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\PlaceController;
+use App\Http\Controllers\Api\CommentController;
+use App\Http\Controllers\Api\RetingController;
 
 
 /* ------------------ Public Routes ------------------ */
@@ -37,6 +39,14 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', [UserController::class,'user']);
     Route::post('/logout', [UserController::class,'logout']);
     Route::get('/getusers', [UserController::class,'getusers']);
+
+    // comments
+    Route::get('/getComments', [CommentController::class,'index']);
+    Route::post('/storeComments', [CommentController::class,'store']);
+
+    //Ratings
+    Route::post('/storeReting', [RetingController::class,'storReting']);
+    Route::get('/getRatings', [RetingController::class,'getRatings']);
 
     // Super admin Info & logout
     Route::get('/superadmin', [UserController::class,'superadmin']);

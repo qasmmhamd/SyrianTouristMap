@@ -15,13 +15,13 @@ return new class extends Migration
                 ->constrained('regions')
                 ->cascadeOnDelete();
 
-            $table->string('locale'); // ar | en
-            $table->string('name');   // اسم المنطقة
-            $table->text('description')->nullable(); // وصف المنطقة
+            $table->string('locale'); 
+            $table->string('name');   
+            $table->text('description')->nullable(); 
 
             $table->timestamps();
 
-            $table->unique(['region_id', 'locale']); // منع تكرار نفس اللغة لنفس المنطقة
+            $table->unique(['region_id', 'locale']); 
         });
     }
 

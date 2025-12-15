@@ -39,7 +39,7 @@ class Rating extends Model
      */
     public function place()
     {
-        return $this->belongsTo(Place::class, 'place_id', 'place_id');
+        return $this->belongsTo(Place::class, 'place_id', 'id');
     }
 }
 

@@ -10,7 +10,6 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    // Register
     public function register(Request $request)
     {
         $data = $request->validate([
@@ -32,8 +31,8 @@ class UserController extends Controller
             'user' => $user
         ])->cookie(
             'token',
-            $token,                 // استخدم نفس التوكن
-            60*24*7,                // 7 أيام
+            $token,
+            60*24*7,
             '/',
             null,
             false,
@@ -41,7 +40,6 @@ class UserController extends Controller
         );
     }
 
-    // Login
     public function login(Request $request)
     {
         $request->validate([
@@ -73,13 +71,10 @@ class UserController extends Controller
         );
     }
 
-    // Current user
     public function user(Request $request)
     {
         return response()->json($request->user());
     }
-
-    // Logout
     public function logout(Request $request)
     {
         $request->user()->currentAccessToken()->delete();
